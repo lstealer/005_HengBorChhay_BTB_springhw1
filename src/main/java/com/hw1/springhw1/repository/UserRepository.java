@@ -33,6 +33,7 @@ public interface UserRepository {
     @Select("select r.id, r.role_name from school.role r\n" +
             "inner join school.account_role ur on r.id = ur.role_id\n" +
             "where ur.account_id = #{id}")
+    @Result(column = "role_name", property = "name")
     List<RoleDto> selectRolesByUserId(int id);
 
 }

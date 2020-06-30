@@ -36,8 +36,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/users").permitAll()
-                .antMatchers(HttpMethod.GET, "/BM/v1/**").hasAnyRole("ROLE_USER", "ROLE_ADMIN","ROLE_SUPER_ADMIN")
+                .antMatchers("/swagger-ui.html").hasAnyRole("SUPER_ADMIN")
+                .antMatchers(HttpMethod.GET, "/hi").hasAnyRole("ADMIN","SUPER_ADMIN")
+                .antMatchers(HttpMethod.GET, "/BM/v1/**").hasAnyRole("USER", "ADMIN","SUPER_ADMIN")
                 .anyRequest().authenticated()
 //                .anyRequest().permitAll()
                 .and()
