@@ -9,7 +9,7 @@ import java.util.List;
 public class UserDto implements UserDetails {
 
     private int id;
-    private String userId;
+
     private String username;
     private String password;
 
@@ -17,11 +17,11 @@ public class UserDto implements UserDetails {
 
     public UserDto() {}
 
-    public UserDto(String userId,
+    public UserDto(
                    String username,
                    String password,
                    List<com.hw1.springhw1.repository.dto.RoleDto> roles) {
-        this.userId = userId;
+
         this.username = username;
         this.password = password;
         this.roles = roles;
@@ -35,13 +35,7 @@ public class UserDto implements UserDetails {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
-    }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public String getUsername() {
         return username;
@@ -96,7 +90,7 @@ public class UserDto implements UserDetails {
     public String toString() {
         return "UserDto{" +
                 "id=" + id +
-                ", userId='" + userId + '\'' +
+
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +

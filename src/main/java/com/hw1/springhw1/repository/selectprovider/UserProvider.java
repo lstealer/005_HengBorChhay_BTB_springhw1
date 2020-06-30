@@ -31,7 +31,7 @@ public class UserProvider {
 
     public String createUserRolesSql() {
         return new SQL(){{
-            INSERT_INTO("account_roles");
+            INSERT_INTO("school.account_role");
             VALUES("account_id", "#{user.id}");
             VALUES("role_id", "#{role.id}");
         }}.toString();

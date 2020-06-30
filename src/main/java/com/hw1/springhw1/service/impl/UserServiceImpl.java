@@ -32,15 +32,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto insert(UserDto userDto) {
         try {
-//            userRepository.insert(userDto);
-//            int id = userRepository.selectIdById(userDto.getId());
-//            userDto.setId(id);
-//            for (RoleDto role : userDto.getRoles()) {
-//                userRepository.createUserRoles(userDto, role);
-//            }
-//            return userDto;
-            System.out.println(userDto.getId());
-            return null;
+            userRepository.insert(userDto);
+            int id = userRepository.selectIdById(userDto.getId());
+            userDto.setId(id);
+            for (RoleDto role : userDto.getRoles()) {
+                userRepository.createUserRoles(userDto, role);
+            }  System.out.println(userDto.getId());
+            return userDto;
+
+//            return null;
         } catch (Exception e) {
             System.out.println("Error");
             e.printStackTrace();
